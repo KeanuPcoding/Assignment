@@ -3,35 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keanu Payne - Home</title>
-  <!-- Font Awesome for bot icons (if needed later) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bx92c5ZgyFddO0+kpv6U5A4Z5vD2C5cz5+aU3+q8Vf/VKZ0T+qR3ZRbC+8PZ2w+ZW6BjXkdbZw9rJc2xHq2rkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Keanu Payne - Projects</title>
+
   <style>
     /* ===== Reset & Base ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { font-family: Arial, sans-serif; color:#fff; height:100%; background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; }
-    
+    html, body { height:100%; font-family:Arial, sans-serif; color:#fff; scroll-behavior:smooth; background:#111; }
+
     /* ===== Navigation ===== */
-    nav { position:fixed; width:100%; background:rgba(0,0,0,0.7); padding:15px 20px; z-index:1000; }
+    nav { position: fixed; width:100%; background: rgba(0,0,0,0.7); padding:15px 20px; z-index:1000; }
     nav ul { display:flex; justify-content:center; list-style:none; gap:30px; }
     nav ul li a { color:#fff; font-weight:bold; text-decoration:none; transition:0.3s; }
     nav ul li a:hover { color:#f2994a; }
 
-    /* Clock */
-    #current-time { position:fixed; top:60px; right:20px; background:rgba(0,0,0,0.7); padding:6px 10px; border-radius:8px; font-size:1rem; box-shadow:0 4px 6px rgba(0,0,0,0.3); z-index:1000; }
+    /* ===== Clock ===== */
+    #current-time { position: fixed; top:50px; right:20px; background: rgba(0,0,0,0.7); padding:6px 10px; border-radius:8px; font-size:1rem; box-shadow:0 4px 6px rgba(0,0,0,0.3); z-index:1000; }
 
-    /* Hero */
-    #hero { min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; background:rgba(0,0,0,0.4); }
-    #hero .hero-content { max-width:900px; }
-    #hero h1 { font-size:3rem; margin-bottom:10px; }
-    #hero h2 { font-size:2rem; margin-bottom:10px; }
-    #hero p { font-size:1.2rem; margin-bottom:20px; }
-    .btn { display:inline-block; background:#f2994a; color:#fff; padding:15px 30px; border-radius:8px; font-weight:bold; transition:0.3s; text-decoration:none; }
-    .btn:hover { background:#e07b1f; }
+    /* ===== Hero Section ===== */
+    #projects-hero { min-height:50vh; display:flex; justify-content:center; align-items:center; text-align:center; background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; }
+    #projects-hero .section-overlay { background: rgba(0,0,0,0.5); padding:60px 20px; border-radius:15px; max-width:900px; margin:auto; }
 
-    /* Bot */
-    #bot { position:fixed; bottom:20px; right:20px; width:60px; height:60px; cursor:pointer; z-index:1000; }
+    /* ===== Projects Section ===== */
+    #projects-lower { min-height:60vh; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; padding:40px 20px; width:100%; }
+    .project-grid { display:flex; flex-direction:column; gap:0; width:100%; max-width:800px; }
+    .project-card { background:#111; padding:25px; border-radius:0; border-bottom:2px solid #222; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; text-align:left; color:#fff; }
+    .project-card:last-child { border-bottom:none; }
+    .project-card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+    .project-card a { color:#f2994a; text-decoration:none; }
+    .project-card a:hover { text-decoration:underline; }
+
+    /* ===== Footer ===== */
+    footer { background: linear-gradient(to right, #0057b8, #2a5298); color:#fff; text-align:center; padding:40px 20px; }
+
+    /* ===== Bot ===== */
+    #bot { position: fixed; bottom: 20px; right: 20px; width:60px; height:60px; cursor:pointer; z-index:1000; }
     .bot-body { width:100%; height:100%; background:#f2994a; border-radius:50%; position:relative; animation:bounce 2s infinite; }
     .bot-eye { width:10px; height:10px; background:#000; border-radius:50%; position:absolute; top:18px; animation:blink 4s infinite; }
     .bot-eye.left { left:15px; }
@@ -60,13 +65,29 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-content">
-      <h1 id="greeting"></h1>
-      <h2>Keanu Payne</h2>
-      <p>Web Developer & Designer | South Africa</p>
-      <a href="Projects.html" class="btn">View Projects</a>
+  <!-- Hero Section -->
+  <section id="projects-hero">
+    <div class="section-overlay">
+      <h1>My Projects</h1>
+      <p>Take a look at some of my recent work</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects-lower">
+    <div class="project-grid">
+      <div class="project-card">
+        <h3><a href="https://keanupcoding.github.io/keanu-payne-portfolio" target="_blank">Keanu Payne Portfolio</a></h3>
+        <p>Click the title to view the live portfolio website.</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="#">Project 2 (Coming Soon)</a></h3>
+        <p>Description of project 2 goes here.</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="#">Project 3 (Coming Soon)</a></h3>
+        <p>Description of project 3 goes here.</p>
+      </div>
     </div>
   </section>
 
@@ -75,7 +96,7 @@
     &copy; 2025 Keanu Payne | South Africa
   </footer>
 
-  <!-- Bot -->
+  <!-- Animated Bot -->
   <div id="bot">
     <div class="bot-body">
       <div class="bot-eye left"></div>
@@ -86,26 +107,19 @@
   </div>
   <div id="bot-message"></div>
 
+  <!-- Scripts -->
   <script>
     // Clock
     function updateTime() {
       const now = new Date();
-      const options = { timeZone:'Africa/Johannesburg', hour:'2-digit', minute:'2-digit', second:'2-digit', year:'numeric', month:'short', day:'numeric', weekday:'short' };
+      const options = { 
+        timeZone:'Africa/Johannesburg', hour:'2-digit', minute:'2-digit', second:'2-digit',
+        year:'numeric', month:'short', day:'numeric', weekday:'short'
+      };
       document.getElementById("current-time").textContent = now.toLocaleString('en-ZA', options) + " SAST";
     }
     setInterval(updateTime,1000);
     updateTime();
-
-    // Dynamic Greeting
-    function setGreeting() {
-      const hour = new Date().getHours();
-      let greetingText = '';
-      if(hour>=5 && hour<12) greetingText="Good Morning!";
-      else if(hour>=12 && hour<18) greetingText="Good Afternoon!";
-      else greetingText="Good Evening!";
-      document.getElementById('greeting').textContent = greetingText;
-    }
-    setGreeting();
 
     // Bot compliments
     const bot = document.getElementById('bot');
@@ -117,20 +131,18 @@
       "Your positivity is contagious! ✨",
       "You are a rockstar! 🤘"
     ];
-
     function showBotMessage(msg,duration=3000){
       botMessage.textContent=msg;
       botMessage.style.display='block';
       setTimeout(()=>botMessage.style.display='none',duration);
     }
-
     setInterval(()=>{
       const randomCompliment=compliments[Math.floor(Math.random()*compliments.length)];
       showBotMessage(randomCompliment,4000);
     },30000);
-
     window.addEventListener('load',()=>{ showBotMessage("Hello! 👋 Welcome to my portfolio!",4000); });
     bot.addEventListener('click',()=>{ showBotMessage("Hi again! 👋 Glad you're here!",4000); });
   </script>
+
 </body>
 </html>
